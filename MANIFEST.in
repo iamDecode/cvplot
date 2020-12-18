@@ -1,0 +1,6 @@
+recursive-include cvplot/static *.*
+include cvplot.json
+
+include LICENSE
+include setup.py
+include pyproject.toml
