@@ -1,6 +1,7 @@
 var widgets = require('@jupyter-widgets/base');
 var _ = require('lodash');
 var Vue = require('vue').default;
+var App = require('./App.vue').default;
 
 // See example.py for the kernel counterpart to this file.
 
@@ -33,31 +34,31 @@ var HelloModel = widgets.DOMWidgetModel.extend({
 });
 
 
+var vm = new Vue({
+  render: h => h(App)
+}).$mount();
+
+
 // Custom View. Renders the widget model.
 var HelloView = widgets.DOMWidgetView.extend({
   // Defines how the widget gets rendered into the DOM
   render: function() {
     this.value_changed();
 
+    this.el.appendChild(vm.$el);
+
     // Observe changes in the value traitlet in Python, and define
     // a custom callback.
     this.model.on('change:value', this.value_changed, this);
-
-    new Vue({
-      el: this.el,
-      data() {
-        return {
-          test: "hello"
-        }
-      },
-      mounted() {
-        console.log('this works!', this.test);
-      }
-    });
   },
 
   value_changed: function() {
-    this.el.textContent = this.model.get('value');
+    const value = this.model.get('value')
+
+    vm.$children[0].$nextTick(function() {
+      this.test = value;
+    })
+    //this.el.textContent = this.model.get('value');
   }
 });
 

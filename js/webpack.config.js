@@ -1,10 +1,30 @@
 var path = require('path');
 var version = require('./package.json').version;
+var VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 
 // Custom webpack rules are generally the same for all webpack bundles, hence
 // stored in a separate local variable.
 var rules = [
-    { test: /\.css$/, use: ['style-loader', 'css-loader']}
+  {
+    test: /\.vue$/,
+    loader: 'vue-loader'
+  },
+  // this will apply to both plain `.js` files
+  // AND `<script>` blocks in `.vue` files
+  // {
+  //   test: /\.js$/,
+  //   loader: 'babel-loader'
+  // },
+  // this will apply to both plain `.css` files
+  // AND `<style>` blocks in `.vue` files
+  {
+    test: /\.css$/,
+    use: [
+      'vue-style-loader',
+      'css-loader'
+    ]
+  }
 ]
 
 
@@ -40,6 +60,9 @@ module.exports = [
         module: {
             rules: rules
         },
+        plugins: [ 
+          new VueLoaderPlugin()
+        ],
         externals: ['@jupyter-widgets/base']
     },
     {// Embeddable cvplot bundle
@@ -67,6 +90,9 @@ module.exports = [
         module: {
             rules: rules
         },
+        plugins: [ 
+          new VueLoaderPlugin()
+        ],
         externals: ['@jupyter-widgets/base']
     }
 ];
