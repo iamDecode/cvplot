@@ -38,6 +38,6 @@
     "vue": "^2.6.10"
   },
   "jupyterlab": {
-    "extension": "lib/labplugin"
+    "extension": "dist/labplugin"
   }
 }

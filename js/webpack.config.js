@@ -94,5 +94,22 @@ module.exports = [
           new VueLoaderPlugin()
         ],
         externals: ['@jupyter-widgets/base']
+    },
+    {
+        entry: './lib/labplugin.js',
+        output: {
+            filename: 'labplugin.js',
+            path: path.resolve(__dirname, 'dist'),
+            libraryTarget: 'amd',
+            publicPath: 'https://unpkg.com/cvplot@' + version + '/dist/'
+        },
+        devtool: 'source-map',
+        module: {
+            rules: rules
+        },
+        plugins: [ 
+          new VueLoaderPlugin()
+        ],
+        externals: ['@jupyter-widgets/base']
     }
 ];
