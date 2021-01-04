@@ -27,6 +27,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "css-loader": "^3.6.0",
     "rimraf": "^2.6.1",
     "vue-loader": "^15.9.6",
     "vue-template-compiler": "^2.6.12",
@@ -35,7 +36,10 @@
   "dependencies": {
     "@jupyter-widgets/base": "^1.1 || ^2 || ^3",
     "lodash": "^4.17.4",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "d3": "^5.9.7",
+    "pixi.js": "^5.2.1",
+    "robust-segment-intersect": "^1.0.1"
   },
   "jupyterlab": {
     "extension": "dist/labplugin"
