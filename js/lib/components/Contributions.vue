@@ -64,21 +64,22 @@
         lineThreshold: 0.15
       }
     },
-    mounted() {
-      const data = window.data
-      this.values = data.features.map((feature, i) => ({[feature]: data.values.map(v => v[i])})).toDict()
-      this.lines = data.contributions
-      this.contributions = data.contributions2
-      this.yhat = data.yhat
-      this.predictions = data.predictions
-      this.features = ['alcohol', 'pH'] // data.features
-      this.classes = data.classes
-
-      this.$nextTick(_ => { // Delay to ensure every component got the right feature assigned
-        this.updateChildren()
-      })
-    },
     methods: {
+      update(data) {
+        if (_.isEmpty(data)) return
+
+        this.values = data.features.map((feature, i) => ({[feature]: data.values.map(v => v[i])})).toDict()
+        this.lines = data.contributions
+        this.contributions = data.contributions2
+        this.yhat = data.yhat
+        this.predictions = data.predictions
+        this.features = ['alcohol', 'pH'] // data.features
+        this.classes = data.classes
+
+        this.$nextTick(_ => { // Delay to ensure every component got the right feature assigned
+          this.updateChildren()
+        })
+      },
       updateChildren() {
         this.$children.forEach(component => component.update(null, component._selected))
       },
