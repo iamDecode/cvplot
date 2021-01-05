@@ -53,7 +53,6 @@ var View = widgets.DOMWidgetView.extend({
 
   value_changed: function() {
     const value = this.model.get('value')
-    console.log('called!', value)
     vm.$children[0].$nextTick(function() {
     	this.$refs.contributions.update(value)
     })

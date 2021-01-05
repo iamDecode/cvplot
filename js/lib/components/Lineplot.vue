@@ -71,7 +71,6 @@
       this.xAxis = g.append('g')
       this.yScale = d3.scaleLinear().range([this.height, 0])
       this.yAxis = g.append('g')
-      this.colorScale = d3.scaleOrdinal(this.$parent.theme)
 
       d3.select(this.$el).selectAll('canvas')
         .style('transform', `translate(${this.margin.left}px, ${this.margin.top}px)`)
@@ -137,8 +136,6 @@
 
         this.xAxis.attr("transform", `translate(0, ${this.yScale(0)})`).call(d3.axisBottom(this.xScale))
         this.yAxis.call(d3.axisLeft(this.yScale))
-
-        this.colorScale.domain(this.classes)
 
         this.g.clear()
 
@@ -290,13 +287,6 @@
           }
         }
       },
-      colorFor(prediction) {
-        // Color gradient
-        const target = this.classes[prediction.maxIndex]
-        const color = this.colorScale(target)
-        const value = (prediction[prediction.maxIndex] - (1/prediction.length)) / (1 - (1/prediction.length))
-        return d3.color(d3.interpolateHsl('#ffffff', color)(value)).formatHex()
-      },
       intersecting() {
         if (this.selection[1] == null) return null
 
@@ -379,10 +369,14 @@
       }
     },
     beforeDestroy() {
-      this.stage.destroy()
-      this.stage = null
-      this.renderer.destroy()
-      this.renderer = null
+      if (this.stage != null) {
+        this.stage.destroy()
+        this.stage = null
+      }
+      if (this.renderer != null) {
+        this.renderer.destroy()
+        this.renderer = null
+      }
     }
   }
 </script>

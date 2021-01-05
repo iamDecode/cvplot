@@ -56,7 +56,6 @@
         features: [],
         classes: [],
         targetClass: 0,
-        theme: ['#4bb3d2', '#fcd05c', '#f6436f', '#75bd70'],
         menuOpen: false,
         averageData: false,
         showPoints: false,
@@ -73,7 +72,7 @@
         this.contributions = data.contributions2
         this.yhat = data.yhat
         this.predictions = data.predictions
-        this.features = ['alcohol', 'pH'] // data.features
+        this.features = data.features
         this.classes = data.classes
 
         this.$nextTick(_ => { // Delay to ensure every component got the right feature assigned
