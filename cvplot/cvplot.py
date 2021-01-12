@@ -5,7 +5,7 @@ from joblib import delayed, Parallel, cpu_count
 import numpy as np
 import pandas as pd
 from .sensitivity_analysis import SensitivityAnalysis
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 import sys
 from .lime import LIMEExplainer, trapezoid_pdf
 from functools import partial
