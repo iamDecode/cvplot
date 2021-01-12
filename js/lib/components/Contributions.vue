@@ -89,6 +89,8 @@
         this.$children.forEach(component => component.updatePossible(values))
       },
       updateSelected(values) {
+        this.widget.model.set('selection', values)
+        this.widget.model.save_changes()
         this.$children.forEach(component => component.updateSelected(values))
       }
     }

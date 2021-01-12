@@ -29,7 +29,8 @@ var Model = widgets.DOMWidgetModel.extend({
     _view_module : 'cvplot',
     _model_module_version : '0.1.0',
     _view_module_version : '0.1.0',
-    value : {}
+    value : {},
+    selection : []
   })
 });
 
@@ -52,8 +53,10 @@ var View = widgets.DOMWidgetView.extend({
   },
 
   value_changed: function() {
+    const widget = this
     const value = this.model.get('value')
     vm.$children[0].$nextTick(function() {
+      this.$refs.contributions.widget = widget
     	this.$refs.contributions.update(value)
     })
   }

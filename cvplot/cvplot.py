@@ -1,5 +1,5 @@
 import ipywidgets as widgets
-from traitlets import Unicode, Dict
+from traitlets import Unicode, Dict, List
 from sklearn.exceptions import NotFittedError
 from joblib import delayed, Parallel, cpu_count
 import numpy as np
@@ -32,6 +32,7 @@ class CVPlot(widgets.DOMWidget):
   _model_module_version = Unicode('^0.1.0').tag(sync=True)
 
   value = Dict().tag(sync=True)
+  selection = List().tag(sync=True)
 
   def __init__(self, X, y, features, model, explainer=None, target_index=0, max=500, **kwargs):
     super().__init__(**kwargs)
