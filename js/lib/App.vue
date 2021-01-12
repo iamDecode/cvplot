@@ -57,6 +57,8 @@ export default {
     color: #212529;
     text-align: left;
     background-color: #fff;
+    overflow-y: hidden;
+    overflow-x: auto;
 	}
 
 	.app .text-center {
