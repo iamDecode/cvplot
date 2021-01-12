@@ -108,6 +108,10 @@
           return
         }
 
+        this.x = this.$parent.lines[this.feature][0].map(z => z[0])
+        this.y = this.$parent.lines[this.feature].map(x => x.map(z => z[1]))
+        this.values = this.$parent.values[this.feature]
+
         if(this.averageData && this.y.length != 1) {
           this.y = [this.y[0].map((d,i) => d3.mean(this.y.map(x => x[i])))]
           this.values = [d3.mean(this.values)]
