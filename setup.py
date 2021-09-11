@@ -56,7 +56,7 @@ setup_args = dict(
     cmdclass=cmdclass,
     author='Dennis Collaris',
     author_email='d.collaris@me.com',
-    url='https://github.com//cvplot',
+    url='https://github.com/iamDecode/cvplot',
     keywords=[
         'ipython',
         'jupyter',
