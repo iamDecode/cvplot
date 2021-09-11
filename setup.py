@@ -20,7 +20,9 @@ log.info('setup.py entered')
 log.info('$PATH=%s' % os.environ['PATH'])
 
 name = 'cvplot'
-LONG_DESCRIPTION = 'Understand machine learning models with Contribution-Value plots'
+
+with open("README.md", "r") as fh:
+  LONG_DESCRIPTION = fh.read()
 
 # Get cvplot version
 version = get_version(pjoin(name, '_version.py'))
@@ -47,6 +49,7 @@ setup_args = dict(
     version=version,
     description='Understand machine learning models with Contribution-Value plots',
     long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown",
     include_package_data=True,
     install_requires=[
         'ipywidgets>=7.0.0',
