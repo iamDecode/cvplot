@@ -38,7 +38,7 @@ class LIMEExplainer(object):
     if scale:
       #self.scaler = StandardScaler(with_mean=True)
       self.scaler = MinMaxScaler()
-      self.scaler.fit(training_data)
+      self.scaler.fit(self.training_data)
 
       for index in self.categorical_features:
         self.scaler.min_[index] = 0

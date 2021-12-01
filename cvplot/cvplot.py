@@ -104,8 +104,8 @@ class CVPlot(widgets.DOMWidget):
 
     contributions = [explainer(x) for x in np.asanyarray(X)]
 
-    predictions = model.predict(X)
-    probabilities = model.predict_proba(X)
+    predictions = model.predict(X.values)
+    probabilities = model.predict_proba(X.values)
 
     self.value = {
       'contributions': np.asanyarray(cvlines).tolist(),
