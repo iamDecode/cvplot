@@ -27,9 +27,9 @@ class CVPlot(widgets.DOMWidget):
   _model_module = Unicode('cvplot').tag(sync=True)
 
   # Version of the front-end module containing widget view
-  _view_module_version = Unicode('^0.1.0').tag(sync=True)
+  _view_module_version = Unicode('^0.0.2').tag(sync=True)
   # Version of the front-end module containing widget model
-  _model_module_version = Unicode('^0.1.0').tag(sync=True)
+  _model_module_version = Unicode('^0.0.2').tag(sync=True)
 
   value = Dict().tag(sync=True)
   selection = List().tag(sync=True)

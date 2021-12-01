@@ -27,8 +27,8 @@ var Model = widgets.DOMWidgetModel.extend({
     _view_name : 'View',
     _model_module : 'cvplot',
     _view_module : 'cvplot',
-    _model_module_version : '0.1.0',
-    _view_module_version : '0.1.0',
+    _model_module_version : '0.0.2',
+    _view_module_version : '0.0.2',
     value : {},
     selection : []
   })
