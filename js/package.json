@@ -43,6 +43,12 @@
     "robust-segment-intersect": "^1.0.1"
   },
   "jupyterlab": {
-    "extension": "dist/labplugin"
+    "extension": "dist/labplugin",
+    "sharedPackages": {
+      "@jupyter-widgets/base": {
+        "bundled": false,
+        "singleton": true
+      }
+    }
   }
 }
