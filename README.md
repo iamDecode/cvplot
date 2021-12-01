@@ -27,7 +27,7 @@ $ jupyter labextension install cvplot
 For a development installation (requires npm),
 
 ```
-$ git clone https://github.com//cvplot.git
+$ git clone https://github.com/iamDecode/cvplot.git
 $ cd cvplot
 $ pip install -e .
 $ jupyter nbextension install --py --symlink --sys-prefix cvplot

@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "description": "Understand machine learning models with Contribution-Value plots",
   "author": "Dennis Collaris",
+  "license": "BSD-2-Clause",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com//cvplot.git"
+    "url": "https://github.com/iamDecode/cvplot.git"
   },
   "keywords": [
     "jupyter",
