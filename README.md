@@ -14,26 +14,38 @@ To install use pip:
 
 ```
 $ pip install cvplot
-$ jupyter nbextension enable --py --sys-prefix cvplot
-$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 ```
 
-To install for jupyterlab
+If you use jupyter lab, also run:
 
 ```
 $ jupyter labextension install cvplot
 ```
 
-For a development installation (requires npm),
+for classic jupyter notebooks, run:
+
+```
+jupyter nbextension install --py --symlink --overwrite --sys-prefix cvplot
+jupyter nbextension enable --py --sys-prefix cvplot
+```
+
+
+## Development
+
+For a development installation (requires npm or yarn),
 
 ```
 $ git clone https://github.com/iamDecode/cvplot.git
 $ cd cvplot
+```
+
+You may want to (create and) activate a virtual environment before continuing with:
+
+```
 $ pip install -e .
-$ jupyter nbextension install --py --symlink --sys-prefix cvplot
-$ jupyter nbextension enable --py --sys-prefix cvplot
 $ jupyter labextension install js
-$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
+$ jupyter nbextension install --py --symlink --overwrite --sys-prefix cvplot
+$ jupyter nbextension enable --py --sys-prefix cvplot
 ```
 
 When actively developing your extension, build Jupyter Lab with the command:
@@ -43,8 +55,6 @@ $ jupyter lab --watch
 ```
 
 This takes a minute or so to get started, but then automatically rebuilds JupyterLab when your javascript changes.
-
-Note on first `jupyter lab --watch`, you may need to touch a file to get Jupyter Lab to open.
 
 
 ## Citation
